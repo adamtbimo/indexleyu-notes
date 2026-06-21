@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼体育 · 专题杂志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f2f2;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1.2rem;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(145deg, #ececec 0%, #dcdcdc 100%);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03), 0 0 0 1px #dddddd inset, 0 0 0 1px #ffffff80 inset;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "✦";
+            font-size: 6rem;
+            color: #b0b0b0;
+            opacity: 0.15;
+            position: absolute;
+            bottom: 0.2rem;
+            right: 1.5rem;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #1e1e1e;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 350;
+            border-left: 2px solid #a0a0a0;
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02), 0 0 0 1px #e6e6e6;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 0 0 1px #d4d4d4;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #ececec;
+            color: #2a2a2a;
+        }
+
+        .card h2 span {
+            font-weight: 300;
+            color: #7d7d7d;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .card p {
+            margin-bottom: 1.2rem;
+            color: #3e3e3e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .small-meta {
+            font-size: 0.85rem;
+            color: #898989;
+            margin-top: 0.3rem;
+            display: inline-block;
+            border-top: 1px dotted #d0d0d0;
+            padding-top: 0.6rem;
+        }
+
+        /* 特点列（杂志感） */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            flex: 1 1 160px;
+            background: #f8f8f8;
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e2e2e2;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #2b2b2b;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #606060;
+        }
+
+        /* 页尾区域 */
+        .footer-note {
+            margin-top: 2.2rem;
+            padding: 1.8rem 2rem;
+            background: #eaeaea;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid #dadada;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.6);
+        }
+
+        .footer-note p {
+            font-size: 0.98rem;
+            color: #4c4c4c;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-note a {
+            color: #2a2a2a;
+            text-decoration: none;
+            border-bottom: 1px solid #a0a0a0;
+            font-weight: 450;
+            transition: border 0.15s;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #000;
+        }
+
+        .footer-note .small {
+            font-size: 0.8rem;
+            color: #7a7a7a;
+            margin-top: 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .wrapper {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                flex: 1 1 auto;
+            }
+        }
+
+        /* 纯装饰 */
+        .dot-divider {
+            width: 40px;
+            height: 2px;
+            background: #c8c8c8;
+            margin: 0.4rem 0 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>乐鱼体育</h1>
+        <div class="sub">在节奏与静止之间，观察运动中的细节</div>
+        <div style="margin-top: 1.2rem; font-size: 0.95rem; color: #4f4f4f; max-width: 70%;">
+            <span style="background: #ffffff80; padding: 0.2rem 0.6rem; border-radius: 30px;">专题 · 运动叙事</span>
+        </div>
+    </div>
+
+    <!-- 第一段：背景说明 -->
+    <div class="card">
+        <h2>从一种现象出发<span> · 背景</span></h2>
+        <p>
+            体育赛事从来不只属于赛场——它渗透在看台的呐喊、屏幕前的专注、深夜刷新的数据面板，也存在于日常的练习与复盘里。<strong>乐鱼体育</strong> 这个关键词背后，实际上呼应了许多人对运动内容获取方式的重新审视：不再满足于零散的比分快讯，而是希望找到一种更系统、更沉静的视角。 
+        </p>
+        <p>
+            过去几年里，运动信息的呈现方式经历了从单一图文到多维度直播、集锦、战术拆解的演变。人们逐渐从「看热闹」转向「看门道」，而这种求知欲恰好与平台整合能力的提升同步发生。与其说这是一个品牌或一个入口，不如说它代表着一类内容需求——在嘈杂的互联网中划出一片相对专注的运动阅读空间。
+        </p>
+        <div class="dot-divider"></div>
+        <div class="small-meta">✦ 观察笔记 · 2025</div>
+    </div>
+
+    <!-- 第二段：三段自然介绍之——核心特点与氛围 -->
+    <div class="card">
+        <h2>专注的界面，克制的节奏</h2>
+        <p>
+            好的信息界面应该让人忘记界面的存在。没有任何闪烁横幅或强制弹窗，所有的卡片、列表和导航都退到内容之后。浏览 <a href="https://indexleyu.com.cn">乐鱼体育</a> 时，你会发现视觉重心始终放在比赛数据、赛事日历、战术图示上——白灰底色配合细线分隔，像一本干净的运动手册。
+        </p>
+        <p>
+            这种风格并非出自偶然。它试图在「效率」与「沉浸」之间找到一个平衡点：一方面保证资深爱好者能快速抓取关键信息，另一方面又留出呼吸感，让偶尔路过的读者也能从容阅读。五个赛季的统计、球员跑动热图、历史交锋记录……都以相同冷静的秩序呈现。
+        </p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>📋 赛程追踪</strong>
+                <span>月度概览，重点赛事高亮，无冗余干扰</span>
+            </div>
+            <div class="feature-item">
+                <strong>📊 数据卡片</strong>
+                <span>命中率、控球率、犯规分布，简明扼要</span>
+            </div>
+            <div class="feature-item">
+                <strong>🧩 专题归档</strong>
+                <span>经典比赛回顾，球员访谈摘录，轻量阅读</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三段：场景与日常感 -->
+    <div class="card">
+        <h2>不止于一次点击</h2>
+        <p>
+            下班后的地铁上，午休时间的咖啡杯旁，或是周末早晨靠在床头——这些才是运动内容被阅读的真实场景。页面不需要催促你「立即观看」，而是安静地陈列着当日要点、战报摘要和明日看点。你可以花三分钟刷完焦点新闻，也可以花半小时沉浸在一篇战术分析里。
+        </p>
+        <p>
+            这种节奏与许多人的生活频率恰好吻合。没有倒计时，没有进度条焦虑。内容就放在那里，像一本翻到一半的杂志，随时可以回来。我们注意到，这种低压迫感的设计反而让用户更愿意主动了解那些原本不熟悉的联赛或运动项目——因为探索的门槛被降到了最低。
+        </p>
+        <p>
+            说到底，每个访问 <a href="https://indexleyu.com.cn">乐鱼体育</a> 的人都有自己的偏好：有人只看欧冠，有人关注乒羽，也有人想找一场十年前经典决赛的回放。重要的是，页面给了所有人同样的尊重——没有谁比谁更重要，每条信息都在它该在的位置。
+        </p>
+        <div class="small-meta">✦ 来自编辑部的常见问题摘要 · 页面不会自动刷新，你可以慢慢看</div>
+    </div>
+
+    <!-- 页尾提示 -->
+    <div class="footer-note">
+        <p>翻阅这本专题杂志，关于运动与信息的另一种叙述。</p>
+        <p style="margin-top: 0.2rem;">
+            若想继续探索，可以直接进入 <a href="https://indexleyu.com.cn">乐鱼体育</a> 的页面，那里有更多持续更新的内容。
+        </p>
+        <div class="small">— 保持好奇，保持平静 —</div>
+    </div>
+
+</div>
+</body>
+</html>
